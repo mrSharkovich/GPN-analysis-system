@@ -1,0 +1,23 @@
+CREATE TABLE users(
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
+email VARCHAR(100) UNIQUE
+);
+
+CREATE TABLE devices(
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
+user_id INT,
+FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE device_statuses(
+id INT AUTO_INCREMENT PRIMARY KEY,
+device_id INT,
+FOREIGN KEY (device_id) REFERENCES devices(id),
+x FLOAT,
+y FLOAT,
+z FLOAT,
+time DATETIME
+);
+
